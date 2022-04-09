@@ -1,0 +1,21 @@
+{
+  "name": "leo-db",
+  "version": "1.0.0",
+  "description": "A lightweight miniature json db with basic functionalities.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "json",
+    "db",
+    "lightweight",
+    "find",
+    "update",
+    "delete",
+    "insert",
+    "leo"
+  ],
+  "author": "Malay Bhavsar",
+  "license": "ISC"
+}

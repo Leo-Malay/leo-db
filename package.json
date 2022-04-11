@@ -20,10 +20,10 @@
     "license": "ISC",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Leo-Malay/leo-captcha.git"
+        "url": "git+https://github.com/Leo-Malay/leo-db.git"
     },
     "bugs": {
-        "url": "https://github.com/Leo-Malay/leo-captcha/issues"
+        "url": "https://github.com/Leo-Malay/leo-db/issues"
     },
-    "homepage": "https://github.com/Leo-Malay/leo-captcha#readme"
+    "homepage": "https://github.com/Leo-Malay/leo-db#readme"
 }

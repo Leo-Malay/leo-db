@@ -2,7 +2,7 @@
 
 ### Lightweight Miniature JSON DB
 
-Hello World, THe use of JSON is at its peak and th future of the data being passed and store has a higher potential of also being in JSON format. Thus im presenting you with this module of which makes it extremely easy to perform DB like quesrys on the JSON data.
+Hello World, The use of JSON is at its peak and th future of the data being passed and store has a higher potential of also being in JSON format. Thus im presenting you with this module of which makes it extremely easy to perform DB like queries on the JSON data.
 
 ```jsx
 // Import the module

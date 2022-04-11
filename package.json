@@ -1,21 +1,29 @@
 {
-  "name": "leo-db",
-  "version": "1.0.0",
-  "description": "A lightweight miniature json db with basic functionalities.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "json",
-    "db",
-    "lightweight",
-    "find",
-    "update",
-    "delete",
-    "insert",
-    "leo"
-  ],
-  "author": "Malay Bhavsar",
-  "license": "ISC"
+    "name": "leo-db",
+    "version": "1.0.0",
+    "description": "A lightweight miniature json db with basic functionalities.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "json",
+        "db",
+        "lightweight",
+        "find",
+        "update",
+        "delete",
+        "insert",
+        "leo"
+    ],
+    "author": "Malay Bhavsar",
+    "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Leo-Malay/leo-captcha.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Leo-Malay/leo-captcha/issues"
+    },
+    "homepage": "https://github.com/Leo-Malay/leo-captcha#readme"
 }

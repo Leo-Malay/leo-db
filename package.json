@@ -1,6 +1,6 @@
 {
     "name": "leo-db",
-    "version": "1.0.0",
+    "version": "1.0.11",
     "description": "A lightweight miniature json db with basic functionalities.",
     "main": "index.js",
     "scripts": {
@@ -17,7 +17,7 @@
         "leo"
     ],
     "author": "Malay Bhavsar",
-    "license": "ISC",
+    "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Leo-Malay/leo-db.git"

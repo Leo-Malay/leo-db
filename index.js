@@ -9,22 +9,46 @@ class leoDB {
     }
     // Collection
     SelectDB = (name) => {
+        if (!this.checkDBexists(name))
+            return this.response(false, "No such db found");
         this.params.name = name || this.params.name;
+        return this.response(true, "DB selected");
     };
     NewDB = (name, fields) => {
+        if (this.checkDBexists(name))
+            return this.response(false, "DB Already exists");
         fields.map((e) => e.trim().toLowerCase());
         this.params.db[name] = [];
         this.params.struct[name] = fields;
+        return this.response(true, "New DB created");
     };
     DeleteDB = (name) => {
+        if (!this.checkDBexists(name))
+            return this.response(false, "No such DB found");
         delete this.params.db[name];
         delete this.params.struct[name];
+        return this.response(true, "DB deleted");
+    };
+    checkDBexists = (name) => {
+        return this.params.struct.hasOwnProperty(name);
+    };
+    getDBdetails = (name) => {
+        if (!this.checkDBexists(name))
+            return this.response(false, "No such DB found");
+        return this.response(false, "Details for " + name, {
+            name: name,
+            fields: this.params.struct[name],
+            number_records: this.params.db[name].length,
+            number_fields: this.params.struct[name].length,
+        });
     };
     // Load and Save
     LoadDB = () => this.read(this.params.dbName);
     SaveDB = () => this.write(this.params.dbName);
     // Document
     Insert = (data) => {
+        if (this.params.name === undefined)
+            return this.response(false, "No DB selected");
         if (Array.isArray(data))
             data.forEach((ele) => {
                 this.params.db[this.params.name].push(this.structDataIn(ele));
@@ -32,6 +56,8 @@ class leoDB {
         else this.params.db[this.params.name].push(this.structDataIn(data));
     };
     Update = (search, updates) => {
+        if (this.params.name === undefined)
+            return this.response(false, "No DB selected");
         var i, flag, key, key1;
         search = this.structCompact(search);
         updates = this.structCompact(updates);
@@ -52,6 +78,8 @@ class leoDB {
         }
     };
     Find = (options = undefined) => {
+        if (this.params.name === undefined)
+            return this.response(false, "No DB selected");
         if (options === undefined)
             return this.structDataOut(this.params.db[this.params.name]);
         // Creating the Options.
@@ -75,6 +103,8 @@ class leoDB {
         return this.structDataOut(temp);
     };
     Delete = (options = undefined) => {
+        if (this.params.name === undefined)
+            return this.response(false, "No DB selected");
         if (options === undefined) this.params.db[this.params.name] = [];
         else {
             // Creating the Options.
@@ -85,7 +115,7 @@ class leoDB {
                     for (const key in options) {
                         if (options[key] === value[key]) return false;
                     }
-                    return true;
+                    return this.response(true, "");
                 }
             );
             this.params.db[this.params.name] = temp;
@@ -134,6 +164,13 @@ class leoDB {
             });
         });
         return temp;
+    };
+    response = (success, msg, data = {}) => {
+        return {
+            success,
+            msg,
+            data,
+        };
     };
     // fileIO
     write = (name) => fs.writeFileSync(name, JSON.stringify(this.params));
